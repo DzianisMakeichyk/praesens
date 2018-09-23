@@ -1,0 +1,81 @@
+@import '../../assets/scss/base/colors';
+@import '../../assets/scss/base/functions';
+
+.nav-menu {
+  @include breakpoint(md) {
+    position: relative;
+    display: inline-block;
+    min-width: 226px;
+    margin: 20px;
+    transition: .3s ease;
+    overflow-x: hidden;
+  }
+
+  &__wrapper {
+    position: relative;
+    padding: 20px;
+    background: $white;
+    border-bottom: 1px solid #efefef;
+    transition: .3s ease;
+    z-index: 100;
+
+    @include breakpoint(md) {
+      padding: 14px 20px;
+    }
+  }
+}
+
+.nav {
+  background: $white;
+
+  @include breakpoint(md) {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    left: 60px;
+    margin-top: -39px;
+    margin-right: 41px;
+    padding: 0 41px 0 0;
+    transition: .3s ease;
+    z-index: 110;
+  }
+}
+
+.menu-enter {
+  transform: translateY(-101%);
+
+  @include breakpoint(md) {
+    transform: translateX(-101%);
+    opacity: 0;
+  }
+
+  &.menu-enter-active {
+    transform: translateY(0);
+    transition: 300ms ease;
+
+    @include breakpoint(md) {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+.menu-leave {
+  transform: translateY(0);
+
+  @include breakpoint(md) {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  &.menu-leave-active {
+    transform: translateY(-101%);
+    transition:  300ms ease;
+
+    @include breakpoint(md) {
+      transform: translateX(-101%);
+      opacity: 0;
+    }
+  }
+}

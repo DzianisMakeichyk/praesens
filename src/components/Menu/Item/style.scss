@@ -1,0 +1,119 @@
+@import '../../../assets/scss/base/colors';
+@import '../../../assets/scss/base/functions';
+
+.menu {
+  &__item {
+    padding: 14px 20px 13px;
+    transition: .3s ease;
+    cursor: pointer;
+
+    @include breakpoint(md) {
+      padding: 8px 0 6px 0;
+    }
+
+    &:not(:first-child) {
+      @include breakpoint(md) {
+        padding: 8px 0 6px 40px;
+      }
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $gray-medium;
+
+      @include breakpoint(md) {
+        border-bottom: none;
+      }
+    }
+  }
+
+  &__point {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    font-size: 12px;
+    line-height: 24px;
+    z-index: 90;
+  }
+}
+
+.sub-menu-enter {
+  transform: translateY(-250px);
+  opacity: 0;
+
+  &.sub-menu-enter-active {
+    transform: translateY(0);
+    transition: 500ms ease;
+    opacity: 1;
+  }
+}
+
+.sub-menu-leave {
+  opacity: 1;
+
+  &.sub-menu-leave-active {
+    transition: 300ms ease;
+    opacity: 0;
+  }
+}
+
+.menu-sub {
+  @include breakpoint(md) {
+    position: fixed;
+    display: flex;
+    top: 60px;
+    left: 20px;
+    z-index: -10;
+  }
+
+  &__wrapper {
+    @include breakpoint(md) {
+      min-width: 226px;
+      padding: 15px 21px 74px;
+      background: $white;
+      margin-right: 2px;
+    }
+  }
+
+  &__item {
+    padding: 7px 0 7px 30px;
+    font-size: 10px;
+    line-height: 20px;
+    font-weight: 600;
+    transition: .3s ease;
+
+    @include breakpoint(md) {
+      font-size: 11px;
+      line-height: 24px;
+      font-weight: 500;
+      padding: 0;
+    }
+
+    &:hover {
+      transform: translateX(5px);
+    }
+  }
+
+  &__promo {
+    display: none;
+
+    @include breakpoint(md) {
+      display: block;
+      width: 226px;
+      height: 257px;
+      background: $black-medium;
+      z-index: -1;
+    }
+
+    &.is-active {
+      @include breakpoint(md) {
+        animation: promoAnimation 1s ease;
+      }
+    }
+  }
+}
+
+@keyframes promoAnimation {
+  0%, 50% { transform: translateX(-101%); }
+  51% { transform: translateX(-101%); }
+  100% { transform: translateX(0); }
+}

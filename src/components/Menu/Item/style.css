@@ -1,0 +1,88 @@
+.menu__item {
+  padding: 14px 20px 13px;
+  transition: .3s ease;
+  cursor: pointer; }
+  @media only screen and (min-width: 768px) {
+    .menu__item {
+      padding: 8px 0 6px 0; } }
+  @media only screen and (min-width: 768px) {
+    .menu__item:not(:first-child) {
+      padding: 8px 0 6px 40px; } }
+  .menu__item:not(:last-child) {
+    border-bottom: 1px solid #efefef; }
+    @media only screen and (min-width: 768px) {
+      .menu__item:not(:last-child) {
+        border-bottom: none; } }
+
+.menu__point {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  font-size: 12px;
+  line-height: 24px;
+  z-index: 90; }
+
+.sub-menu-enter {
+  transform: translateY(-250px);
+  opacity: 0; }
+  .sub-menu-enter.sub-menu-enter-active {
+    transform: translateY(0);
+    transition: 500ms ease;
+    opacity: 1; }
+
+.sub-menu-leave {
+  opacity: 1; }
+  .sub-menu-leave.sub-menu-leave-active {
+    transition: 300ms ease;
+    opacity: 0; }
+
+@media only screen and (min-width: 768px) {
+  .menu-sub {
+    position: fixed;
+    display: flex;
+    top: 60px;
+    left: 20px;
+    z-index: -10; } }
+
+@media only screen and (min-width: 768px) {
+  .menu-sub__wrapper {
+    min-width: 226px;
+    padding: 15px 21px 74px;
+    background: #fff;
+    margin-right: 2px; } }
+
+.menu-sub__item {
+  padding: 7px 0 7px 30px;
+  font-size: 10px;
+  line-height: 20px;
+  font-weight: 600;
+  transition: .3s ease; }
+  @media only screen and (min-width: 768px) {
+    .menu-sub__item {
+      font-size: 11px;
+      line-height: 24px;
+      font-weight: 500;
+      padding: 0; } }
+  .menu-sub__item:hover {
+    transform: translateX(5px); }
+
+.menu-sub__promo {
+  display: none; }
+  @media only screen and (min-width: 768px) {
+    .menu-sub__promo {
+      display: block;
+      width: 226px;
+      height: 257px;
+      background: #181f10;
+      z-index: -1; } }
+  @media only screen and (min-width: 768px) {
+    .menu-sub__promo.is-active {
+      animation: promoAnimation 1s ease; } }
+
+@keyframes promoAnimation {
+  0%, 50% {
+    transform: translateX(-101%); }
+  51% {
+    transform: translateX(-101%); }
+  100% {
+    transform: translateX(0); } }
